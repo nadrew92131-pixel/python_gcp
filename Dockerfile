@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir "poetry>=2.0.0"
 
 # 5. 設定容器內的工作目錄
 WORKDIR /app
-
+RUN mkdir -p CSV_Old_Data CSV_New_Data
 # 6. 複製環境定義檔案
 # 這裡先複製 lock 和 toml 是為了利用 Docker 快取層，加快以後 build 的速度
 COPY pyproject.toml poetry.lock* ./
