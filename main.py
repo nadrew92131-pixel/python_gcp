@@ -13,11 +13,14 @@ from load_to_mysql import (load_to_mysql,
 import os 
 import pandas as pd
 from config import (SAVE_OLD_DATA_DIR,
-                    SEQ_PAGE_URL)
+                    SEQ_PAGE_URL,
+                    SAVE_NEW_DATA_DIR)
 pd.set_option('future.no_silent_downcasting', True)#關閉警告
 
 if __name__ == "__main__":
     print("程式開始執行...")
+    os.makedirs(SAVE_OLD_DATA_DIR, exist_ok=True)
+    os.makedirs(SAVE_NEW_DATA_DIR, exist_ok=True)
     files = os.listdir(SAVE_OLD_DATA_DIR)
     #os.listdir這個method會去路徑下看檔案
     if len(files)>0:
